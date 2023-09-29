@@ -34,6 +34,10 @@ int main(){
     int min_idx = min_element(nums.begin(), nums.end()) - nums.begin(); // finding the index of minimum element
     int max_idx = max_element(nums.begin(), nums.end()) - nums.begin(); // finding the index of maximum element
 
+    int temp[n];
+    auto min = min_element(temp, temp+n); // finding the minimum element
+    auto idx = distance(temp, min); // finding the index of minimum element
+
     swap(nums[min_idx], nums[max_idx]); // swapping the minimum and maximum elements
 
     sort(nums.begin(), nums.end()); // sorting the vector
