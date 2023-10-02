@@ -10,9 +10,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    int min_idx = min_element(nums.begin(), nums.end()) - nums.begin();
-    int max_idx = max_element(nums.begin(), nums.end()) - nums.begin();
-    nums[max_idx] = nums[min_idx];
+    int min = *min_element(nums.begin(), nums.end());
+    int max = *max_element(nums.begin(), nums.end());
+    for (int i = 0; i < n; i++) {
+        if (nums[i] == max) {
+            nums[i] = min;
+        }
+    }
     for (int i = 0; i < n; i++) {
         cout << nums[i] << " ";
     }
