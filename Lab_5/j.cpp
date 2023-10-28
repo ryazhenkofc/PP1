@@ -6,10 +6,18 @@ using namespace std;
 int main(){ 
     string s; 
     cin >> s; 
-    string rev_s = s;
 
-    reverse(rev_s.begin(), rev_s.end());
-    rev_s == s ? cout << "YES" << endl : cout << "NO" << endl;
-    
+    for (char c = 'a'; c <= 'z'; c++) {
+        string tmp = s + c;
+        reverse(tmp.begin(), tmp.end());
+
+        if (tmp == string(tmp.rbegin(), tmp.rend())) {
+            cout << "YES" << endl;
+            return 0;
+        }
+    }
+
+    cout << "NO" << endl;
+
     return 0; 
 }
