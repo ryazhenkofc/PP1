@@ -1,33 +1,28 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+
 using namespace std;
 
-string valid_string(string s,int n){
-    string res = "";
-    for(int i = 0; i < s.size()-1; i++){
-        if(s[i] > 47 and s[i] < 58){
-            res += s[i];
-        }
-    }
-    cout << res << endl;
+string valid_string(string s, int n){
     int count = 0;
-    for(int i = 0; i < res.size(); i++){
-        if(res[i] > res[i+1] or res[i] < res[i+1]){
-            count++;
-            cout << count << endl;
-            cout << res[i] << " " << res[i+1] << endl; 
+    for (int i = 0; i < s.length(); i++)
+    {
+        if(!(s[i]>='0'&&s[i]<='9')){
+            count=0;
         }
-        if(count == n) return "Valid";
+        else if(s[i]>='0'&&s[i]<='9'){
+            count++;
+        }
+        if(count==n){
+            return "Valid";
+            break;
+        }
     }
     return "Not valid";
 }
 
-
 int main(){
     string s;
-    cin >> s;
     int n;
-    cin >> n;
+    cin >> s >> n;
     cout << valid_string(s, n);
-    return 0;
 }
