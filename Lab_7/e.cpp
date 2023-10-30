@@ -2,8 +2,8 @@
 
 using namespace std;
 
-string unique_divider(long long n, int tmp = 1){
-    if (n == 2) return "Yes";
+string unique_divider(unsigned long long n, unsigned long long tmp = 1){
+    if (tmp == n) return "Yes";
     if (tmp > n) return "No";
     return unique_divider(n, 2 * tmp);
 }
