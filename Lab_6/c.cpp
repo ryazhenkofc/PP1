@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-int num_of_elements(int n, int *a, int *b) {
+int num_of_elements(int n, int a[], int b[]) {
     sort(a, a + n);
     sort(b, b + n);
 
