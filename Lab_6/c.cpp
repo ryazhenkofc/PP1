@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cmath>
+
 using namespace std;
 
 int num_of_elements(int n, int a[], int b[]) {
