@@ -3,8 +3,8 @@
 using namespace std;
 
 void sort_letters(string s){
-    for (char c : s) {
-    c = tolower(c);
+    for (char& c : s){ 
+        c = tolower(c);
     }
     set<char> ans;
     for(int i : s) ans.insert(i);
