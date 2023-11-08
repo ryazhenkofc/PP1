@@ -4,7 +4,7 @@ using namespace std;
 
 
 void serial_counter(int n){
-        map<string, int> m;
+    map<string, int> m;
     for(int i = 0; i < n; i++){
         string s;
         int x;
