@@ -2,6 +2,7 @@
 #include <stack>
 
 using namespace std; 
+
 bool isValid(string s) {
     stack<char> stack;
     for (char c : s) {

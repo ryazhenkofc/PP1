@@ -2,7 +2,6 @@
 #include <map>
 using namespace std;
 
-
 void serial_counter(int n){
     map<string, int> m;
     for(int i = 0; i < n; i++){

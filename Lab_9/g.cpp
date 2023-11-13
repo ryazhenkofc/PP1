@@ -1,8 +1,8 @@
 #include <iostream> 
+
 using namespace std; 
-int main(){ 
-    string s; 
-    cin >> s; 
+
+void queue(string s){
     string res; 
     int count = 0; 
     for(int i = 0; i < s.size(); i++){ 
@@ -29,5 +29,11 @@ int main(){
             } 
         } 
     } 
+}
+
+int main(){ 
+    string s; 
+    cin >> s; 
+    queue(s);
     return 0; 
 }

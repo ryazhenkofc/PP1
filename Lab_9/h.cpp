@@ -4,16 +4,7 @@
 
 using namespace std;
 
-int main(){
-    int n;
-    cin >> n;
-    set<string> st;
-    vector<string> v(n);
-    for(int i = 0; i < n; i++){
-        string s;
-        cin >> s;
-        v[i] = s;
-    }
+int strings(set<string> st, vector<string> v){
     for(string x : v) st.insert(x);
     for(string j : st){
         cout << j << ' ';
@@ -26,6 +17,19 @@ int main(){
             counter++;
         }
     }
+    return 0;
+}
 
+int main(){
+    int n;
+    cin >> n;
+    set<string> st;
+    vector<string> v(n);
+    for(int i = 0; i < n; i++){
+        string s;
+        cin >> s;
+        v[i] = s;
+    }
+    strings(st, v);
     return 0;
 }
