@@ -11,7 +11,7 @@ void serial_counter(int n){
         m[s] = m[s] + x;
     }
 
-    for(const auto &it : m){
+    for(auto it : m){
         cout << it.first << ' ' << it.second << endl;
     }
 }
