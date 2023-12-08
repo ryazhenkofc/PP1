@@ -1,31 +1,65 @@
 #include <iostream>
-
+#include <vector>
+#include <tuple>
 using namespace std;
 
-int main(){
-    int subjects;
-    cin >> subjects;
-    int points[subjects][4];
-    for(int i = 0; i < subjects; i++){
-        for(int j = 0; j < 4; j++){
-            cin >> points[i][j];
-        }
+int main() {
+    int n;
+    cin >> n;
+
+    vector<tuple<int, int, int, int>> subjects(n);
+    for (int i = 0; i < n; i++) {
+        int att1, att2, final, credits;
+        cin >> att1 >> att2 >> final >> credits;
+        subjects[i] = make_tuple(att1, att2, final, credits);
     }
-    double arr[subjects][2]; // GP | CREDIT
-    
-    for(int i = 0; i < subjects; i++){
-        int sum = 0;
-        for(int j = 0; j < 4; j++){
-            arr[i][1] = points[i][3];
-            if(points[i][0] + points[i][1] < 30 or points[i][2] < 20){
-                arr[i][0] = 0;
-                break;
-            }
-            else{
-                sum += points[i][j];
-                arr[i][0] = (double)sum/points[i][3];
-                
-            }
+
+    double total_gp = 0;
+    double total_credits = 0;
+
+    for (const auto& subject : subjects) {
+        int att1, att2, final, credits;
+        tie(att1, att2, final, credits) = subject;
+        float gp;
+        int score = att1 + att2 + final - 50;
+
+        if (att1 + att2 < 30 || final < 20) {
+            gp = 0.0;
+        } else{
+            if(score >= 5 and score < 10){ 
+                gp = 1 + 0.333333;  
+            } 
+            if(score >= 10 and score < 15){ 
+                gp = 1 + 0.666667;  
+            } 
+            if(score >= 15 and score < 20){ 
+                gp = 2;  
+            } 
+            if(score >= 20 and score < 25){ 
+                gp = 2 + 0.333333;  
+            } 
+            if(score >= 25 and score < 30){ 
+                gp = 2 + 0.666667;  
+            } 
+            if(score >= 30 and score < 35){ 
+                gp = 3;  
+            } 
+            if(score >= 35 and score < 40){ 
+                gp = 3 + 0.333333;  
+            } 
+            if(score >= 40 and score < 45){ 
+                gp = 3 + 0.666667;  
+            } 
+            if(score >= 45 and score <= 50){ 
+                gp = 4;  
+            } 
+        }
+        total_gp += gp * credits;
+        total_credits += credits;
+    }
+    double gpa = total_gp / total_credits;
+
+    cout << gpa;
 
     return 0;
 }
