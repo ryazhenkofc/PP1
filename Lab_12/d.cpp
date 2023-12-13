@@ -18,7 +18,7 @@ int main(){
     cin >> n;
     vector<int> v(n);
     for(int i = 0; i < n; i++) cin >> v[i];
-    int max = v[0];
+    int max = 0;
     for(int i = 0; i < n; i++){
         for(int j = i + 1; j < n; j++){
             int num = gcd(v[i], v[j]);
